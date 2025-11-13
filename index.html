@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta property="og:title" content="StarBucks">
+    <link rel="icon" type="image/ico" href="./media/logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviasales</title>
+    <link rel="stylesheet" href="./css/bulma.min.css">
+    <script src="script.js"></script>
+
+
+</head>
+
+<body>
+
+
+  
+  <style>
+/* Небольшие кастомы поверх Bulma */
+.tour-card { border-radius: 12px; overflow: hidden; box-shadow: 0 6px 20px rgba(10,10,10,0.08); }
+.tour-image { height: 140px; object-fit: cover; width: 100%; }
+.price-badge { font-weight: 700; font-size: 1.25rem; }
+.airline { font-size: 0.9rem; color: rgba(0,0,0,0.6); }
+.tag-row { gap: 6px; flex-wrap: wrap; }
+.controls { margin-bottom: 1.25rem; }
+.is-clickable { cursor: pointer; }
+.favorite { color: #ff3860; }
+@media (min-width: 1024px) {
+.tour-image { height: 160px; }
+}
+ 
+
+.avia-banner {
+background: linear-gradient(135deg, #00bfff, #0077cc);
+color: white;
+border-radius: 1rem;
+padding: 2rem;
+position: relative;
+overflow: hidden;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.avia-banner h2 {
+font-size: 1.8rem;
+font-weight: 700;
+}
+.avia-banner p {
+opacity: 0.9;
+margin-bottom: 1rem;
+}
+.pill {
+display: inline-block;
+background: rgba(255,255,255,0.15);
+border-radius: 999px;
+padding: 0.4rem 0.9rem;
+margin: 0.25rem;
+font-weight: 600;
+font-size: 0.9rem;
+backdrop-filter: blur(5px);
+}
+.arrow-btn {
+display: inline-flex;
+align-items: center;
+background: rgba(255,255,255,0.18);
+color: white;
+border: none;
+border-radius: 999px;
+padding: 0.7rem 1.2rem;
+cursor: pointer;
+transition: 0.2s ease;
+font-weight: 600;
+font-size: 1rem;
+}
+.arrow-btn:hover {
+background: rgba(255,255,255,0.3);
+transform: translateY(-2px);
+}
+.arrow-btn svg {
+width: 18px;
+height: 18px;
+margin-left: 0.4rem;
+transition: transform 0.2s;
+}
+.arrow-btn:hover svg {
+transform: translateX(5px);
+}
+.plane-deco {
+position: absolute;
+right: -40px;
+top: -30px;
+width: 280px;
+opacity: 0.12;
+transform: rotate(-15deg);
+pointer-events: none;
+}
+</style>
+
+
+
+
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+<div class="navbar-brand">
+  <a class="navbar-item" href="https://bulma.io">
+    <img src="media/logo.png" alt="Мой логотип" width="auto" height="300">
+  </a>
+</div>
+
+</svg>
+
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+ 
+    </div>
+
+    <div class="navbar-end">
+         <div id="navbarBasicExample" class="navbar-menu">
+
+      <a class="navbar-item">
+        Домой
+      </a>
+
+      <a class="navbar-item">
+        О нас
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Больше
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            О нас
+          </a>
+          <a class="navbar-item is-selected">
+            Вакансии
+          </a>
+          <a class="navbar-item">
+            Контакты
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Связь
+          </a>
+        </div>
+      </div>
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary">
+            <strong>Зарегистрироваться</strong>
+          </a>
+          <a class="button is-light">
+            Войти
+          </a>
+        </div>
+      </div>
+    </div>
+
+</nav>
+<section class="section">
+<div class="container">
+<div class="avia-banner box">
+<h2>Дешёвые билеты для вас</h2>
+<p>Находите выгодные направления и акции каждый день.</p>
+
+
+<div class="tags are-medium">
+<span class="pill">Москва → Стамбул от 5 990₽</span>
+<span class="pill">Москва → Ереван от 6 450₽</span>
+<span class="pill">Москва → Тбилиси от 7 100₽</span>
+</div>
+
+
+<div class="mt-4">
+<button class="arrow-btn" onclick="alert('Переход к акциям')">
+Смотреть
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M13 5l7 7-7 7" /></svg>
+</button>
+</div>
+
+
+<svg class="plane-deco" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476.6 3.4c-3.4-1.6-7.4-.9-10.1 1.7L331 140.6 263.9 118c-11.7-3.9-24.1 3.7-27.9 15.4-3.8 11.6 3.7 24.1 15.4 27.9L321 201.6 178.3 344.3c-9.9 9.9-11.6 25.3-3.6 36.7l36 48C218.1 443.4 232.2 448 246 448c6.4 0 12.9-1.6 18.6-4.9l48-26.9c11.6-6.5 16.8-20.6 11.3-32.5-5.5-11.9-19.8-17.4-31.4-10.9l-26.9 15.1-59.1-59.1L390.4 211l62.7 77.1c3.7 4.6 9.8 6.3 15.1 4.2 5.3-2.1 9-7.1 9.9-12.9l10.6-69.7c1.1-7.1-1.9-14.2-7.4-18.9L361.8 36.9c-2.5-2.1-5.8-3.5-9.2-3.8z" fill="white"/></svg>
+</div>
+</div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-vcentered is-mobile">
+      <div class="column">
+        <h1 class="title">Туры — быстрый подбор</h1>
+        <p class="subtitle">Горячие Туры</p>
+      </div>
+      <div class="column is-narrow">
+        <div class="buttons">
+          <button class="button is-light" id="resetBtn"><i class="fa-solid fa-rotate-left"></i>&nbsp;Сброс</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="box controls">
+      <div class="columns is-vcentered is-mobile">
+        <div class="column is-4">
+          <div class="field has-addons">
+            <div class="control is-expanded">
+              <input id="searchInput" class="input" type="text" placeholder="Город или авиакомпания, напр. Москва или S7">
+            </div>
+            <div class="control">
+              <button id="searchBtn" class="button is-info">Поиск</button>
+            </div>
+          </div>
+        </div>
+        <div class="column is-3">
+          <div class="select is-fullwidth">
+            <select id="sortSelect">
+              <option value="best">Лучшие</option>
+              <option value="price_asc">Цена: по возрастанию</option>
+              <option value="price_desc">Цена: по убыванию</option>
+              <option value="duration">Длительность</option>
+            </select>
+          </div>
+        </div>
+        <div class="column is-2">
+          <div class="select is-fullwidth">
+            <select id="stopsSelect">
+              <option value="any">Все остановки</option>
+              <option value="0">Без пересадок</option>
+              <option value="1">1 пересадка</option>
+            </select>
+          </div>
+        </div>
+        <div class="column is-3 has-text-right">
+          <button id="toggleCardsView" class="button is-light"><i class="fa-solid fa-th-large"></i>&nbsp;Сетка</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid of tour cards -->
+    <div id="cardsWrap" class="columns is-multiline">
+      <!-- Карточки вставляются JS -->
+    </div>
+
+    <!-- Пагинация (простая) -->
+    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+      <a class="pagination-previous" id="prevPage">Пред.</a>
+      <a class="pagination-next" id="nextPage">След.</a>
+      <ul class="pagination-list" id="paginationList"></ul>
+    </nav>
+
+  </div>
+</section>
+
+<script>
+// Пример данных — эти объекты можно загрузить с сервера (API)
+const tours = [
+  {
+    id: 1, title: 'Стамбул — уикенд', from: 'Москва', to: 'Стамбул', price: 12990,
+    airline: 'Pegasus', duration: 4, stops: 0, dateFrom: '2025-12-10', dateTo: '2025-12-14', img: './media/stambul.png'
+  },
+  {
+    id: 2, title: 'Париж — романтика', from: 'Казань', to: 'Париж', price: 35990,
+    airline: 'Air France', duration: 7, stops: 1, dateFrom: '2026-03-01', dateTo: '2026-03-08', img: './media/pariz.png'
+  },
+  {
+    id: 3, title: 'Бали — пляжный отдых', from: 'Москва', to: 'Денпасар', price: 89990,
+    airline: 'S7', duration: 12, stops: 2, dateFrom: '2026-01-15', dateTo: '2026-01-27', img: './media/bali.png'
+  },
+  {
+    id: 4, title: 'Тур Прага и замки', from: 'Санкт-Петербург', to: 'Прага', price: 21990,
+    airline: 'LOT', duration: 5, stops: 0, dateFrom: '2026-05-10', dateTo: '2026-05-15', img: './media/praga.png'
+  },
+  {
+    id: 5, title: 'Тур Тбилиси — гастро', from: 'Минск', to: 'Тбилиси', price: 18990,
+    airline: 'Georgian Airways', duration: 6, stops: 0, dateFrom: '2026-02-20', dateTo: '2026-02-26',  img: './media/gruzia.png'
+  }
+];
+
+let state = {
+  query: '', sort: 'best', stops: 'any', page: 1, perPage: 6
+};
+
+function formatPrice(num){
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + ' ₽';
+}
+
+function renderCard(t){
+  return `
+    <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+      <div class="card tour-card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img class="tour-image" src="${t.img}" alt="${t.title}">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <span class="icon is-medium">
+                <i class="fa-solid fa-plane-departure fa-2x"></i>
+              </span>
+            </div>
+            <div class="media-content">
+              <p class="title is-5">${t.title}</p>
+              <p class="subtitle is-6 airline">${t.from} → ${t.to} · ${t.airline}</p>
+            </div>
+            <div class="media-right has-text-right">
+              <div class="price-badge">${formatPrice(t.price)}</div>
+              <div class="is-size-7">${t.duration} дн.</div>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="columns is-mobile is-vcentered">
+              <div class="column is-8">
+                <div class="tags tag-row">
+                  <span class="tag is-light">${t.dateFrom} — ${t.dateTo}</span>
+                  <span class="tag is-light">Пересадки: ${t.stops}</span>
+                  <span class="tag is-light">ID: ${t.id}</span>
+                </div>
+              </div>
+              <div class="column is-4 has-text-right">
+                <button class="button is-small is-rounded is-outlined add-fav" data-id="${t.id}"><i class="fa-regular fa-heart"></i></button>
+                <button class="button is-small is-info is-rounded">Купить</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function applyFilters(data){
+  let res = data.slice();
+  // Поиск
+  if (state.query){
+    const q = state.query.toLowerCase();
+    res = res.filter(t => (t.title + ' ' + t.from + ' ' + t.to + ' ' + t.airline).toLowerCase().includes(q));
+  }
+  // Остановки
+  if (state.stops !== 'any'){
+    res = res.filter(t => String(t.stops) === state.stops);
+  }
+  // Сортировка
+  if (state.sort === 'price_asc') res.sort((a,b)=>a.price-b.price);
+  else if (state.sort === 'price_desc') res.sort((a,b)=>b.price-a.price);
+  else if (state.sort === 'duration') res.sort((a,b)=>a.duration-b.duration);
+  else res.sort((a,b)=>a.price - b.price + (a.duration - b.duration));
+
+  return res;
+}
+
+function render(){
+  const wrap = document.getElementById('cardsWrap');
+  const filtered = applyFilters(tours);
+  // Пагинация
+  const start = (state.page-1) * state.perPage;
+  const pageItems = filtered.slice(start, start + state.perPage);
+
+  wrap.innerHTML = pageItems.map(renderCard).join('');
+  // Pagination UI
+  const pages = Math.max(1, Math.ceil(filtered.length / state.perPage));
+  const pagelist = document.getElementById('paginationList');
+  pagelist.innerHTML = '';
+  for (let i=1;i<=pages;i++){
+    const li = document.createElement('li');
+    li.innerHTML = `<a class="pagination-link ${i===state.page? 'is-current':''}" aria-label="Страница ${i}" data-page="${i}">${i}</a>`;
+    pagelist.appendChild(li);
+  }
+
+  // Обработчики для фаворитов и кнопок карт
+  document.querySelectorAll('.add-fav').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      const id = Number(btn.dataset.id);
+      btn.classList.toggle('favorite');
+      const icon = btn.querySelector('i');
+      icon.classList.toggle('fa-solid');
+      icon.classList.toggle('fa-regular');
+    });
+  });
+}
+
+// Инициализация событий
+document.getElementById('searchBtn').addEventListener('click', ()=>{
+  state.query = document.getElementById('searchInput').value.trim();
+  state.page = 1; render();
+});
+
+document.getElementById('searchInput').addEventListener('keydown', (e)=>{ if (e.key === 'Enter'){ document.getElementById('searchBtn').click(); }});
+
+document.getElementById('sortSelect').addEventListener('change', (e)=>{ state.sort = e.target.value; render(); });
+
+document.getElementById('stopsSelect').addEventListener('change', (e)=>{ state.stops = e.target.value; render(); });
+
+document.getElementById('resetBtn').addEventListener('click', ()=>{ state = { query:'', sort:'best', stops:'any', page:1, perPage:6 }; document.getElementById('searchInput').value=''; document.getElementById('sortSelect').value='best'; document.getElementById('stopsSelect').value='any'; render(); });
+
+// Пагинация клики
+document.addEventListener('click', (e)=>{
+  if (e.target.matches('.pagination-link')){
+    state.page = Number(e.target.dataset.page);
+    render();
+  }
+  if (e.target.closest && e.target.closest('#prevPage')){
+    state.page = Math.max(1, state.page-1); render();
+  }
+  if (e.target.closest && e.target.closest('#nextPage')){
+    state.page = state.page + 1; render();
+  }
+});
+
+document.getElementById('toggleCardsView').addEventListener('click', (e)=>{
+  const btn = e.currentTarget;
+  const wrap = document.getElementById('cardsWrap');
+  wrap.classList.toggle('is-list-view');
+  if (wrap.classList.contains('is-list-view')){
+    btn.innerHTML = '<i class="fa-solid fa-list"></i>&nbsp;Список';
+
+    document.querySelectorAll('#cardsWrap > .column').forEach(c=> c.className = 'column is-full-mobile');
+  } else {
+    btn.innerHTML = '<i class="fa-solid fa-th-large"></i>&nbsp;Сетка';
+
+    document.querySelectorAll('#cardsWrap > .column').forEach(c=> c.className = 'column is-one-third-desktop is-half-tablet is-full-mobile');
+  }
+});
+
+document.getElementById('prevPage').addEventListener('click', ()=>{ state.page = Math.max(1, state.page-1); render(); });
+document.getElementById('nextPage').addEventListener('click', ()=>{ const max = Math.ceil(applyFilters(tours).length/state.perPage); state.page = Math.min(max, state.page+1); render(); });
+
+
+render();
+</script>
+
+
+<div class="columns is-multiline">
+  <div class="column is-one-third">
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="./media/moscow.png" alt="Placeholder image" />
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="./media/anonim.png" alt="Placeholder image" />
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Евгений</p>
+            <p class="subtitle is-6">@johnsmith</p>
+          </div>
+        </div>
+
+        <div class="content">
+         Слетал в Москву всего за 30000 рублей, отдохнул, а теперь готов дальше работать
+          <a>@2026</a> <a href="#">#россия</a> <a href="#">#отдых</a>
+          <br />
+          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column is-one-third">
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="./media/german.png" alt="Placeholder image" />
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="./media/anonim.png" alt="Placeholder image" />
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Аноним</p>
+            <p class="subtitle is-6">@janedoe</p>
+          </div>
+        </div>
+
+        <div class="content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          <a>@bulmaio</a> <a href="#">#html</a> <a href="#">#bulma</a>
+          <br />
+          <time datetime="2016-1-1">8:00 AM - 2 Jan 2016</time>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column is-one-third">
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="./media/kz.png" alt="Placeholder image" />
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="./media/anonim.png" alt="Placeholder image" />
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Александр</p>
+            <p class="subtitle is-6">@alexbrown</p>
+          </div>
+        </div>
+
+        <div class="content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          <a>@bulmaio</a> <a href="#">#frontend</a> <a href="#">#design</a>
+          <br />
+          <time datetime="2016-1-1">6:45 PM - 3 Jan 2016</time>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="notification is-danger">
+  <button class="delete"></button>
+  Весь контент который не касается вопросов будет удален модерацией <strong>Будьте внимательны.</strong>  
+</div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // находим все кнопки .delete внутри .notification
+      const deleteButtons = document.querySelectorAll('.notification .delete');
+
+      deleteButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const notification = button.parentNode;
+          notification.remove(); // удаляем сам блок
+        });
+      });
+    });
+  </script>
+
+
+    
+
+
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64">
+      <img src="./media/woman.png" />
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong>Светлана Хершляк</strong>
+        <br />
+        Ожидаются ли скидки на тур в Дубай?
+        <br />
+        <small><a>Like</a> · <a>Reply</a> · 11 Ноября</small>
+      </p>
+    </div>
+
+    <article class="media">
+      <figure class="media-left">
+        <p class="image is-48x48">
+          <img src="./media/logo.png" />
+        </p>
+      </figure>
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong>Aviasales</strong>
+            <br />
+         Добрый день Светлана, я консультат Aviasales, готов ответить на ваш вопрос!
+            <br />
+            <small><a>Like</a> · <a>Reply</a> · 11 Ноября</small>
+          </p>
+        </div>
+
+        <article class="media">
+                 Точно не можем сказать, но вы можете поставить уведомления в своем личном кабинете!
+        </article>
+      </div>
+    </article>
+
+    <article class="media">
+      <figure class="media-left">
+        <p class="image is-48x48">
+          <img src="./media/anonim.png" />
+        </p>
+      </figure>
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong>Kayli Eunice </strong>
+            <br />
+            Sed convallis scelerisque mauris, non pulvinar nunc mattis vel.
+            Maecenas varius felis sit amet magna vestibulum euismod malesuada
+            cursus libero. Vestibulum ante ipsum primis in faucibus orci luctus
+            et ultrices posuere cubilia Curae; Phasellus lacinia non nisl id
+            feugiat.
+            <br />
+            <small><a>Like</a> · <a>Reply</a> · 3 часа назад</small>
+          </p>
+        </div>
+      </div>
+    </article>
+  </div>
+</article>
+
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64">
+      <img src="./media/anonim.png" />
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="field">
+      <p class="control">
+        <textarea class="textarea" placeholder="Ваш комментарий..."></textarea>
+      </p>
+    </div>
+    <div class="field">
+      <p class="control">
+        <button class="button">Опубликовать</button>
+      </p>
+    </div>
+  </div>
+</article>
+
+
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Aviasales</strong> 2007-2026<a href="https://jgthms.com"> Все права защищены</a>.
+      The source code is licensed
+      <a href="https://opensource.org/license/mit">MIT</a>. The
+      website content is licensed
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0//"
+        >CC BY NC SA 4.0</a
+      >.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
